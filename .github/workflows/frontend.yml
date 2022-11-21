@@ -1,6 +1,6 @@
 # Szablondo lab7 - do uzupelnienia 
 
-name: CI
+name: ci
 on:
   push:
     branches: [ master ]
