@@ -39,17 +39,18 @@ jobs:
           password: ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
 
       #Zbudowanie i wypchniecie obrazu na Dockerhuba
-      - 
-        name: Build and push
+      #Zbudowanie i wypchniecie obrazu na Dockerhuba
+      - name: Build and push
+        id: docker_build
         uses: docker/build-push-action@v3
         with:
-          context: .
-          push: true
-          tags: cichy1173/app:latest
-          file: {context}/Dockerfile
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
           platforms: linux/arm/v7,linux/arm64/v8,linux/amd64 
+          context: .
+          file: Dockerfile
+          push: true
+          tags: ${{secrets.DOCKER_HUB_USERNAME}}/app:latest 
           
           
           
