@@ -40,7 +40,6 @@ jobs:
 
       #Zbudowanie i wypchniecie obrazu na Dockerhuba
       - name: Build and push
-        id: docker_build
         uses: docker/build-push-action@v3
         with:
           cache-from: type=local,src=/tmp/.buildx-cache
